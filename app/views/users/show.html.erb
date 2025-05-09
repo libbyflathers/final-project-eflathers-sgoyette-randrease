@@ -4,9 +4,9 @@
 
 <div class="card">
   <div class="card-header">
-    <i class="bi bi-journals"></i> <%= "#{pluralize(@microposts.count, 'MICROPOST', plural:'MICROPOSTS')} by #{@user.name}" %>
+    <i class="bi bi-journals"></i> <%= "#{pluralize(@microposts.count, 'CATEGORY', plural:'CATEGORIES')} by #{@user.name}" %>
     <% if logged_in? %>
-      <a href="<%= new_micropost_path %>" class="btn btn-primary btn-sm float-end"><i class="bi bi-pencil-square"></i> New Micropost</a>
+      <a href="<%= new_micropost_path %>" class="btn btn-primary btn-sm float-end"><i class="bi bi-pencil-square"></i> New Category</a>
     <% end %>
   </div>
   <div class="card-body">

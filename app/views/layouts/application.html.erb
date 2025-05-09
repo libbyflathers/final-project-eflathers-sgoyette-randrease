@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for(:title) || "Toy App" %></title>
+    <title><%= content_for(:title) || "To Do Tracker" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <%= csrf_meta_tags %>
@@ -9,8 +9,8 @@
 
     <%= yield :head %>
 
-    <%= favicon_link_tag 'icon.png', :rel => 'shortcut icon', :type => 'image/png' %>
-    <%= favicon_link_tag 'icon.png', :rel => 'apple-touch-icon', :type => 'image/png' %>
+    <%= favicon_link_tag 'butterfly.png', :rel => 'shortcut icon', :type => 'image/png' %>
+    <%= favicon_link_tag 'butterfly.png', :rel => 'apple-touch-icon', :type => 'image/png' %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag :main %>
     <%= javascript_importmap_tags %>
@@ -21,12 +21,15 @@
     <header class="text-bg-dark">
       <div class="container-fluid">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-          <a class="navbar-brand" href="<%= home_index_url %>"><%= image_tag("icon.png", alt:"TOYAPP", :class => "navbar-icon")%> Toy App</a>
+          <a class="navbar-brand" href="<%= home_index_url %>"><%= image_tag("butterfly.png", alt:"TODOTRACKER", :class => "navbar-icon")%> To Do Tracker </a>
 
           <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="<%= microposts_url %>"><i class="bi bi-journals"></i> MicroPosts</a>
+              <a class="nav-link" aria-current="page" href="#"><i class="bi bi-clipboard"></i> To Do List</a>
             </li>
+            <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="<%= microposts_url %>"><i class="bi bi-journals"></i> Categories </a>
+          </li>
             <li class="nav-item">
               <a class="nav-link" href="<%= users_url %>"><i class="bi bi-people-fill"></i> Users</a>
             </li>
