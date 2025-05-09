@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_05_01_151530) do
+ActiveRecord::Schema[7.2].define(version: 2025_05_09_015816) do
   create_table "books", force: :cascade do |t|
     t.string "title"
     t.string "author"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.string "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -24,6 +31,16 @@ ActiveRecord::Schema[7.2].define(version: 2025_05_01_151530) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "likes", default: 0
+  end
+
+  create_table "to_dos", force: :cascade do |t|
+    t.string "title"
+    t.integer "category_id"
+    t.boolean "completed"
+    t.boolean "priority"
+    t.string "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

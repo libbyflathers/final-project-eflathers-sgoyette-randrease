@@ -1,0 +1,41 @@
+<div id="<%= dom_id to_do %>" class="card">
+
+  <div class="card-body">
+    <p class="card-text"><%= to_do.title %></p>
+    <a href="<%= to_do_url(to_do) %>" class="btn btn-outline-primary btn-sm">SHOW TODO</a>
+    <% if logged_in? %>
+      
+    <% end %>
+  </div>
+  <div class="card-footer">
+  </div>
+</div>
+
+
+<div id="<%= dom_id to_do %>">
+  <p>
+    <strong>Title:</strong>
+    <%= to_do.title %>
+  </p>
+
+  <p>
+    <strong>Category:</strong>
+    <%= to_do.category_id %>
+  </p>
+
+  <p>
+    <strong>Completed:</strong>
+    <%= to_do.completed %>
+  </p>
+
+  <p>
+    <strong>Priority:</strong>
+    <%= to_do.priority %>
+  </p>
+
+  <p>
+    <strong>User:</strong>
+    <%= to_do.user_id %>
+  </p>
+
+</div>
