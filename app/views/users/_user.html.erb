@@ -1,14 +1,14 @@
 
 <div id="<%= dom_id user %>" class="card">
-  <div class="card-header">
-    <%= user.name %>
+  <div class="card-header h2">
+    <%= user.name %>  <%= user.last_name %>
 
     <% if logged_in? && current_user.id==user.id %>
       <a href="<%= edit_user_path(user) %>" class="btn btn-warning btn-sm float-end"><i class="bi bi-pencil-square"></i> Edit My Account</a>
     <% end %>
 
   </div>
-  <div class="card-body">
+  <div class="card-body h5">
     <p class="card-text"><%= user.email %></p>
     <span class="badge text-bg-success"><%= pluralize(user.categories.count,'category') %> created!</span>
   </div>
