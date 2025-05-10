@@ -5,10 +5,7 @@
 #   gem "sqlite3"
 #
 default: &default
-  adapter: postgresql
-  encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  url: <%= ENV['DATABASE_URL'] %>
   timeout: 5000
 
 development:
@@ -33,5 +30,6 @@ test:
 # ensure the database is located in a persisted volume.
 production:
   <<: *default
-  adapter: postgresql
+  adapter: sqlite3
+  database: storage/production.sqlite3
   # database: path/to/persistent/storage/production.sqlite3
