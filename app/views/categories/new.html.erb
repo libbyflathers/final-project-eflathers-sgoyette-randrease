@@ -1,11 +1,12 @@
-<% content_for :title, "New category" %>
+<% content_for :title, "New Category" %>
 
-<h1>New category</h1>
+<h1 class="mb-4">New Category</h1>
 
-<%= render "form", category: @category %>
+<div class="mb-4">
+  <%= render "form", category: @category %>
+</div>
 
-<br>
 
-<div>
-  <%= link_to "Back to categories", categories_path %>
+<div class="d-flex justify-content-end mb-3">
+  <%= link_to "Back to Categories", categories_path, class: "btn btn-outline-secondary" %>
 </div>

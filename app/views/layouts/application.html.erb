@@ -18,27 +18,18 @@
 
   <body>
 
-    <header class="text-bg-dark">
-      <div class="container-fluid">
+    <header class="text-bg-dark ">
+      <div class="container-fluid navbar-navy ">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
           <a class="navbar-brand" href="<%= home_index_url %>"><%= image_tag("butterfly.png", alt:"TODOTRACKER", :class => "navbar-icon")%> To Do Tracker </a>
 
           <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="#"><i class="bi bi-clipboard"></i> To Do List</a>
+              <a class="nav-link" aria-current="page" href="<%= to_dos_url %>"><i class="bi bi-clipboard"></i> To Do List</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="<%= microposts_url %>"><i class="bi bi-journals"></i> Categories </a>
+            <a class="nav-link" aria-current="page" href="<%= categories_url %>"><i class="bi bi-journals"></i> Categories </a>
           </li>
-            <li class="nav-item">
-              <a class="nav-link" href="<%= users_url %>"><i class="bi bi-people-fill"></i> Users</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="<%= home_about_url %>"><i class="bi bi-info-circle"></i> About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="<%= home_help_url %>"><i class="bi bi-person-raised-hand"></i> Help</a>
-            </li>
             <li class="nav-item">
               <a class="nav-link" href="<%= home_contactus_url %>"><i class="bi bi-person-rolodex"></i> Contact Us</a>
             </li>
@@ -49,7 +40,7 @@
               <a href="<%= login_path %>" class="btn btn-outline-light me-2"><i class="bi bi-pencil-square"></i> Sign In</a>
               <a href="<%= new_user_path %>" class="btn btn-warning my-2"><i class="bi bi-pencil-square"></i> Sign Up</a>
             <% else %>
-              <a href="<%= user_path current_user %>" class="btn btn-warning my-2"><i class="bi bi-person-badge"></i> <%= current_user.name %></a>
+              <a href="<%= user_path current_user %>" class="btn userbutton my-2"><i class="bi bi-person-badge"></i> <%= current_user.name %></a>
               
               <%= link_to "<i class='bi bi-box-arrow-right'></i> Log Out".html_safe, logout_path, data: {turbo_method: :delete, method: :delete }, class: "btn btn-danger my-2" %>
             
@@ -59,9 +50,21 @@
         </div>
       </div>
     </header>
+    <% flash.each do |key, value| %>
+      <% alert_class = case key %>
+        <% when "notice" then "alert-success" %>
+        <% when "alert" then "alert-danger" %>
+        <% else "alert-info" %>
+      <% end %>
+    <div class="alert <%= alert_class %> alert-dismissible fade show mt-3 mx-3" role="alert">
+      <%= value %>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<% end %>
 
 
     <div class="container-fluid">
+    
       <%= yield %>
     </div>
 

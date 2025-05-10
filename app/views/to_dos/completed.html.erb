@@ -1,0 +1,25 @@
+<div class="container mt-5">
+  <h1>Your Completed To Dos</h1>
+
+  <% if @completed_todos.any? %>
+    <div class="row">
+      <% @completed_todos.each do |todo| %>
+        <div class="col-md-4 mb-4">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title"><%= todo.title %></h5>
+              <p><strong>Category:</strong> <%= todo.category&.name || "Uncategorized" %></p>
+              <p><strong>Priority:</strong> <%= todo.priority ? "High" : "Normal" %></p>
+              <p><strong>Completed:</strong> Yes</p>
+              <a href="<%= to_do_path(todo) %>" class="btn btn-outline-primary btn-sm">View Details</a>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="alert alert-info" role="alert">
+      You have no completed To Dos.
+    </div>
+  <% end %>
+</div>

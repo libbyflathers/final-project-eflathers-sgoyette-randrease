@@ -1,12 +1,12 @@
 <% content_for :title, "Editing to do" %>
 
-<h1>Editing to do</h1>
+<div class="d-flex justify-content-between align-items-center border-bottom py-2">
+  <h1 class="mb-0"> Editing to do</h1>
+</div>
 
 <%= render "form", to_do: @to_do %>
 
-<br>
-
 <div>
-  <%= link_to "Show this to do", @to_do %> |
-  <%= link_to "Back to to dos", to_dos_path %>
+  <%= link_to "Show this to do", @to_do, class: "btn btn-secondary"%>
+  <%= link_to "Back to to dos", to_dos_path, class: "btn btn-info" %>
 </div>

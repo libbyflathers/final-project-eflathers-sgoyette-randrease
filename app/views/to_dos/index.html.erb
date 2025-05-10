@@ -1,16 +1,18 @@
-<p style="color: green"><%= notice %></p>
-
 <% content_for :title, "To dos" %>
 
-<h1>To dos</h1>
+<div class="d-flex justify-content-between align-items-center border-bottom py-2">
+  <h1 class="mb-0">ToDos</h1>
+  <div class="d-flex">
+    <%= link_to "New to do", new_to_do_path, class: "btn new-button" %>
+    <%= link_to "Completed To Dos", completed_todos_path, class: "btn btn-success ms-2" %>
+  </div>
+</div>
+
 
 <div id="to_dos">
   <% @to_dos.each do |to_do| %>
     <%= render to_do %>
-    <p>
-      <%= link_to "Show this to do", to_do %>
-    </p>
   <% end %>
 </div>
 
-<%= link_to "New to do", new_to_do_path %>
+

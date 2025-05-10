@@ -10,7 +10,7 @@
   </div>
   <div class="card-body">
     <p class="card-text"><%= user.email %></p>
-    <span class="badge text-bg-success"><%= pluralize(user.microposts.count,'category') %> created!</span>
+    <span class="badge text-bg-success"><%= pluralize(user.categories.count,'category') %> created!</span>
   </div>
   <div class="card-footer">
     <% if logged_in? && current_user.id==user.id %>

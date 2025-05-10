@@ -6,22 +6,20 @@ Rails.application.routes.draw do
   root "home#index"
 
   get "home/index"
-  get "home/about"
   get "home/contactus"
-  get "home/help"
 
   get "/login", to: "sessions#new"
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
+  get '/completed_todos', to: 'to_dos#completed', as: 'completed_todos'
   
-  resources :microposts do
+
+  resources :to_dos do
     member do
-      get :like
+      patch :complete
     end
   end
 
   resources :users
-
-  #get 'microposts/:id/like' => 'microposts#like', as: :likeAPost
   
 end

@@ -4,11 +4,11 @@ class UsersController < ApplicationController
   # GET /users or /users.json
   def index
     @users = User.all
+    @category_count = Category.count
   end
 
   # GET /users/1 or /users/1.json
   def show
-    @microposts = Micropost.where(user_id:@user.id)
     @to_dos = ToDo.where(user_id:@user.id)
     
   end
@@ -60,7 +60,7 @@ class UsersController < ApplicationController
     @user.destroy!
 
     respond_to do |format|
-      format.html { redirect_to users_path, status: :see_other, notice: "User was successfully destroyed." }
+      format.html { redirect_to root_path, status: :see_other, notice: "User was successfully destroyed." }
       format.json { head :no_content }
     end
   end

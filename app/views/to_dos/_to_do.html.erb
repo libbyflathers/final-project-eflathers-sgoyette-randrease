@@ -1,41 +1,42 @@
-<div id="<%= dom_id to_do %>" class="card">
+<div id="<%= dom_id to_do %>" class="card mb-3 shadow-sm">
+  <div class="card-body
+     <%= if to_do.completed? 
+        'bg-done '
+      elsif to_do.priority? 
+        'bg-priority' 
+      else 
+        '' 
+      end %>">
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-start ">
+      <div class="me-md-4 mb-2 mb-md-0">
+        <h5 class="card-title mb-1"><%= to_do.title %></h5>
+        <small class="text-muted">Category: <%= to_do.category&.name || "Uncategorized" %></small>
+      </div>
 
-  <div class="card-body">
-    <p class="card-text"><%= to_do.title %></p>
-    <a href="<%= to_do_url(to_do) %>" class="btn btn-outline-primary btn-sm">SHOW TODO</a>
-    <% if logged_in? %>
       
-    <% end %>
-  </div>
-  <div class="card-footer">
+      <div class="me-md-4 mb-2 mb-md-0">
+        <strong>Priority:</strong>
+        <span><%= to_do.priority ? "High" : "Normal" %></span>
+      </div>
+
+      <div class="me-md-4 mb-2 mb-md-0">
+        <strong>Completed:</strong>
+        <span><%= to_do.completed ? "Yes" : "No" %></span>
+      </div>
+
+      <div>
+        <a href="<%= to_do_url(to_do) %>" class="btn btn-outline-primary btn-sm">Show</a>
+      </div>
+
+      <% if !to_do.completed %>
+        <%= button_to 'Mark as Complete', complete_to_do_path(to_do), method: :patch, class: "btn btn-outline-success btn-sm" %>
+      <% end %>
+
+    </div>
   </div>
 </div>
 
+  
 
-<div id="<%= dom_id to_do %>">
-  <p>
-    <strong>Title:</strong>
-    <%= to_do.title %>
-  </p>
 
-  <p>
-    <strong>Category:</strong>
-    <%= to_do.category_id %>
-  </p>
-
-  <p>
-    <strong>Completed:</strong>
-    <%= to_do.completed %>
-  </p>
-
-  <p>
-    <strong>Priority:</strong>
-    <%= to_do.priority %>
-  </p>
-
-  <p>
-    <strong>User:</strong>
-    <%= to_do.user_id %>
-  </p>
-
-</div>
+  
