@@ -7,7 +7,7 @@ class CreateToDos < ActiveRecord::Migration[7.2]
       t.boolean :priority
       t.string :user_id
 
-      t.timestamps :created_time
+      t.timestamps
     end
   end
 end
