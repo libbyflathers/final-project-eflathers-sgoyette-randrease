@@ -37,7 +37,7 @@ gem "tzinfo-data", platforms: %i[ windows jruby ]
 gem "bootsnap", require: false
 
 # BOOTSTRAP ADDITIONS
-gem 'bootstrap', '~> 5.3.3'
+gem 'bootstrap', '~> 5.3.5'
 gem 'sassc-rails'
 gem 'jquery-rails'
 
